@@ -52,24 +52,6 @@ public class ToDoMVC {
     @FindBy(how = How.CLASS_NAME, using="destroy")
     private List<WebElement> destroyButton;
 
-    public ToDoMVC editField(String name, WebElement element){
-
-//        By editField = By.className("edit");
-//        WebElement edit = driver.findElement(editField);
-
-//        edit.click();
-//        edit.clear();
-//
-//        edit.sendKeys("The wind of change \n");
-        wait.until(ExpectedConditions.elementToBeClickable(editField));
-        editField.click();
-        editField.clear();
-
-        editField.sendKeys(name);
-        editField.sendKeys(Keys.ENTER);
-
-        return this;
-    }
 
     public ToDoMVC navigate(String url){
         driver.navigate().to(url);
@@ -95,7 +77,7 @@ public class ToDoMVC {
         return toDosList;
     }
 
-    public ToDoMVC editValue(String classname, String newValue)
+    public ToDoMVC renameToDo(String classname, String newValue)
     {
         By editField = By.className(classname);
         WebElement edit = driver.findElement(editField);

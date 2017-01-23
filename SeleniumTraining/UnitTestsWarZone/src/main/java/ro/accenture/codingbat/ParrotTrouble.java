@@ -5,7 +5,7 @@ package ro.accenture.codingbat;
  */
 public class ParrotTrouble {
 
-    public boolean parrotTrouble(boolean talking, int hour) {
+    public boolean parrotTroubleException(boolean talking, int hour) {
         if (hour < 24)
         {
             return (talking && (hour < 7 || hour > 20));

@@ -47,7 +47,7 @@ public class ToDoMVCTests {
         WebElement change = toDoMVC.getToDosList().get(0);
 
         actions.doubleClick(change).perform();
-        toDoMVC.editValue("edit", "The wind of change \n");
+        toDoMVC.renameToDo("edit", "The wind of change \n");
         Assert.assertEquals("The wind of change",
                 change.getText());
     }
@@ -80,8 +80,7 @@ public class ToDoMVCTests {
         Assert.assertEquals(0, toDoMVC.getToDoListSize());
     }
 
-    @After
-    public void shutDown(){
+    @After    public void shutDown(){
         driver.close();
         driver.quit();
     }

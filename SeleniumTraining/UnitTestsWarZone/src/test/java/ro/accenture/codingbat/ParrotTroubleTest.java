@@ -1,47 +1,41 @@
 package ro.accenture.codingbat;
 
-import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-
-import java.util.Arrays;
-import java.util.Collection;
 
 /**
  * Created by andreicontan on 13/12/16.
  */
-@RunWith(value = Parameterized.class)
+//@RunWith(value = Parameterized.class)
 public class ParrotTroubleTest {
 
-    //default value = 0
-    @Parameterized.Parameter(value = 0)
-    public boolean talking;
+//    //default value = 0
+//    @Parameterized.Parameter(value = 0)
+//    public boolean talking;
+//
+//    @Parameterized.Parameter(value = 1)
+//    public int hour;
+//
+//    @Parameterized.Parameter(value = 2)
+//    public boolean expected;
+//
+//    @Parameterized.Parameters(name = "{index}: parrot talking {0} at {1} oclock expects {2}")
+//    public static Collection<Object[]> data() {
+//        return Arrays.asList(new Object[][]{
+//                {true, 7, false },
+//                {true, 6, true},
+//                {true, 10, false},
+////                {true, 25, new IndexOutOfBoundsException()},
+//                {false, 0, false }
+//        });
+//    }
 
-    @Parameterized.Parameter(value = 1)
-    public int hour;
 
-    @Parameterized.Parameter(value = 2)
-    public boolean expected;
-
-    @Parameterized.Parameters(name = "{index}: parrot talking {0} at {1} o'clock expects {2}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-                {true, 7, false },
-                {true, 6, true},
-                {true, 10, false},
-                {true, 25, new IndexOutOfBoundsException()},
-                {false, 0, false }
-        });
-    }
-
-
-    @Test
-    public void talkingLowBoundry_allowed()
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testForException()
     {
         ParrotTrouble parrot = new ParrotTrouble();
-        boolean actual = parrot.parrotTrouble(talking,hour);
-        Assert.assertEquals(expected, actual);
+
+        parrot.parrotTroubleException(true,1000);
     }
 
 //    @Test
