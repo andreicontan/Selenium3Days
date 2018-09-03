@@ -1,0 +1,16 @@
+node() {
+
+    try {
+        stage ('Checkout Selenium repo') {
+          checkout scm: [$class: 'GitSCM', branches: [[name: '*/master']],
+          doGenerateSubmoduleConfigurations: false,
+          extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'selenium-tests']],
+          userRemoteConfigs: [[url: 'acontan@github.com:bol/selenium-tests.git']]]
+      }
+
+      stage ('Run UI tests') {
+           dir("selenium-tests/") {
+             sh 'mvn test'
+           }
+      }
+    }
